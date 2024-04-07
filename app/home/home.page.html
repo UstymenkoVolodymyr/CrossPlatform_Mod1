@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Модульна контрольна робота</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Виконав студент групи АнД-31 Устименко В. М.</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Варіант 10</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header><ion-card-title>Завдання:</ion-card-title></ion-card-header>
+    <ion-card-content>
+      <p>
+        Описати інтерфейс IShape для геометричних фігур. Інтерфейс повинен
+        містити методи Perimeter і Area, що повертають периметр і площу
+        відповідно. Описати класи Triangle (трикутник) і Disk (коло), що
+        реалізують цей інтерфейс.<br>
+        Розробити сервіс для обчислення площи та периметру фігури та для
+        роботи зі списком фігур.<br>
+        Користувач повинен ввести кількість фігур кожного типу.
+      </p>
+      <app-inputform (TriangleEmitter)="ProcessTriangles($event)" (DiskEmitter)="ProcessDisks($event)">
+      </app-inputform>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-center"><strong>Трикутники:</strong></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><i>Периметр:</i></ion-col>
+            <ion-col><i>Площа:</i></ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of TrianglesPAArray">
+            <ion-col>{{item.perimeter}}</ion-col>
+            <ion-col>{{item.area}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-center"><strong>Кола:</strong></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><i>Периметр:</i></ion-col>
+            <ion-col><i>Площа:</i></ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of DisksPAArray">
+            <ion-col>{{item.perimeter}}</ion-col>
+            <ion-col>{{item.area}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

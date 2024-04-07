@@ -1,0 +1,9 @@
+<form [formGroup]="shapeForm" (ngSubmit)="onSubmit()">
+  <ion-item>
+    <ion-input label="Кількість трикутників:" type="number" formControlName="triangles"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Кількість кіл:" type="number" formControlName="disks"></ion-input>
+  </ion-item>
+  <ion-button type="submit" expand="block" [disabled]="!shapeForm.valid">Розрахувати</ion-button>
+</form>
